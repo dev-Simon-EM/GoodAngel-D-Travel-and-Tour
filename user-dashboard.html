@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Good Angel Travels & Tour</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --success: #10b981;
+            --danger: #ef4444; 
+            --warning: #f59e0b;
+            --light-gray: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            height: 80px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-accent {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background: #e69008;
+        }
+
+        /* Dashboard Layout */
+        .dashboard-container {
+            display: flex;
+            min-height: calc(100vh - 80px);
+            margin-top: 80px;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: var(--dark);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            padding: 0 20px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 15px;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .sidebar-menu i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: #f8fafc;
+            margin-left: 250px;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .dashboard-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 15px;
+        }
+        
+        .progress-item {
+            margin-bottom: 15px;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-time {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            margin-bottom: 10px;
+        }
+        
+        .tag-education {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+        
+        .tag-travel {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .data-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+        }
+        
+        .data-table tr:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-pending {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+        
+        .status-approved {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+        
+        .status-rejected {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+        
+        .status-processing {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+
+        /* Document List */
+        .document-list {
+            list-style: none;
+        }
+        
+        .document-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .document-item:last-child {
+            border-bottom: none;
+        }
+        
+        .document-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .document-icon {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h4 {
+            margin-bottom: 5px;
+        }
+        
+        /* Modal Styles */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .service-content {
+            display: none;
+        }
+        
+        .service-content.active {
+            display: block;
+        }
+
+        /* Dashboard Content Sections */
+        .dashboard-content {
+            display: none;
+        }
+        
+        .dashboard-content.active {
+            display: block;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 200px;
+            }
+            
+            .main-content {
+                margin-left: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-container {
+                flex-direction: column;
+                margin-top: 70px;
+            }
+            
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+                cursor: pointer;
+            }
+            
+            .menu-toggle span {
+                height: 3px;
+                width: 100%;
+                background-color: var(--dark);
+                border-radius: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="front.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>GOOD ANGEL TRAVELS & TOUR
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="study-abroad.html">STUDY ABROAD</a></li>
+                    <li><a href="travel-tours.html">TOURS & TRAVEL</a></li>
+                    <li><a href="hotels.html">HOTELS</a></li>
+                    <li><a href="visa.html">VISA SERVICES</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="user-dashboard.html" class="btn btn-outline">DASHBOARD</a>
+                    <a href="#" class="btn btn-outline" onclick="logout(); return false;">LOGOUT</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3>Sarah Johnson</h3>
+                <p>Student & Traveler</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" data-section="overview"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#" data-section="profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#" data-section="education"><i class="fas fa-graduation-cap"></i> Education Services</a></li>
+                <li><a href="#" data-section="travel"><i class="fas fa-plane"></i> Travel Services</a></li>
+                <li><a href="#" data-section="applications"><i class="fas fa-file-alt"></i> My Applications</a></li>
+                <li><a href="#" data-section="bookings"><i class="fas fa-calendar"></i> My Bookings</a></li>
+                <li><a href="#" data-section="documents"><i class="fas fa-file-pdf"></i> Documents</a></li>
+                <li><a href="#" data-section="visa"><i class="fas fa-passport"></i> Visa Status</a></li>
+                <li><a href="#" data-section="saved"><i class="fas fa-bookmark"></i> Saved Items</a></li>
+                <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <!-- Overview Section -->
+            <div class="dashboard-content active" id="overview-section">
+                <div class="dashboard-header">
+                    <div>
+                        <h1>Welcome back, Sarah!</h1>
+                        <p>Here's your application progress and latest updates</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline"><i class="fas fa-bell"></i> Notifications</button>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Application Progress</h3>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span>US Student Visa</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%; background: #4facfe;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span>UK Tier 4 Visa</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%; background: #f093fb;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span>Canada Study Permit</span>
+                                <span>15%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%; background: #f5576c;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Application Stats</h3>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div style="text-align: center; padding: 15px; background: #f8fafc; border-radius: 8px;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">3</div>
+                                <div style="color: var(--gray);">Applications</div>
+                            </div>
+                            <div style="text-align: center; padding: 15px; background: #f8fafc; border-radius: 8px;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">2</div>
+                                <div style="color: var(--gray);">In Progress</div>
+                            </div>
+                            <div style="text-align: center; padding: 15px; background: #f8fafc; border-radius: 8px;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">1</div>
+                                <div style="color: var(--gray);">Approved</div>
+                            </div>
+                            <div style="text-align: center; padding: 15px; background: #f8fafc; border-radius: 8px;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">5</div>
+                                <div style="color: var(--gray);">Documents</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Upcoming Deadlines</h3>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>US Visa Interview</h4>
+                                <p>September 15, 2023</p>
+                            </div>
+                            <div class="activity-time">14 days</div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>NYU Application</h4>
+                                <p>October 1, 2023</p>
+                            </div>
+                            <div class="activity-time">30 days</div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Passport Renewal</h4>
+                                <p>December 5, 2023</p>
+                            </div>
+                            <div class="activity-time">75 days</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Our Services</h3>
+                        <p>Access all our educational and travel services</p>
+                    </div>
+                    
+                    <div class="service-cards">
+                        <div class="service-card" data-service="university-admissions">
+                            <div class="service-tag tag-education">EDUCATION</div>
+                            <div class="service-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>University Admissions</h3>
+                            <p>Find and apply to universities worldwide</p>
+                        </div>
+                        
+                        <div class="service-card" data-service="visa-assistance">
+                            <div class="service-tag tag-education">EDUCATION</div>
+                            <div class="service-icon">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <h3>Visa Assistance</h3>
+                            <p>Get help with student visa applications</p>
+                        </div>
+                        
+                        <div class="service-card" data-service="flight-booking">
+                            <div class="service-tag tag-travel">TRAVEL</div>
+                            <div class="service-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <h3>Flight Booking</h3>
+                            <p>Book flights to your study destination</p>
+                        </div>
+                        
+                        <div class="service-card" data-service="accommodation">
+                            <div class="service-tag tag-travel">TRAVEL</div>
+                            <div class="service-icon">
+                                <i class="fas fa-hotel"></i>
+                            </div>
+                            <h3>Accommodation</h3>
+                            <p>Find housing near your university</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Recent Activity</h3>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Document Uploaded</h4>
+                            <p>You uploaded your financial statement</p>
+                        </div>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Application Submitted</h4>
+                            <p>Your US student visa application was submitted</p>
+                        </div>
+                        <div class="activity-time">1 day ago</div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Support Response</h4>
+                            <p>You received a response from visa support</p>
+                        </div>
+                        <div class="activity-time">2 days ago</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Profile Section -->
+            <div class="dashboard-content" id="profile-section">
+                <div class="dashboard-header">
+                    <h1>Profile Information</h1>
+                    <p>Manage your personal information and account settings</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Personal Details</h3>
+                        <button class="btn btn-primary">Edit Profile</button>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px;">
+                        <div style="text-align: center;">
+                            <div class="user-avatar" style="width: 120px; height: 120px; font-size: 3rem; margin: 0 auto 20px;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <button class="btn btn-outline">Change Photo</button>
+                        </div>
+                        
+                        <div>
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" value="Sarah Johnson" disabled>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <div class="form-group">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" value="sarah.j@example.com" disabled>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" value="+1 (555) 123-4567" disabled>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-control" value="123 Main Street, New York, NY 10001" disabled>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <div class="form-group">
+                                    <label class="form-label">Date of Birth</label>
+                                    <input type="text" class="form-control" value="March 15, 1995" disabled>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Nationality</label>
+                                    <input type="text" class="form-control" value="American" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Password & Security</h3>
+                    </div>
+                    
+                    <div style="max-width: 600px;">
+                        <div class="form-group">
+                            <label class="form-label">Current Password</label>
+                            <input type="password" class="form-control">
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label class="form-label">New Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary">Update Password</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education Services Section -->
+            <div class="dashboard-content" id="education-section">
+                <div class="dashboard-header">
+                    <h1>Education Services</h1>
+                    <p>Manage your study abroad applications and processes</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>University Applications</h3>
+                        <button class="btn btn-primary">New Application</button>
+                    </div>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>University</th>
+                                <th>Program</th>
+                                <th>Applied Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>New York University</td>
+                                <td>Computer Science (MS)</td>
+                                <td>Aug 15, 2023</td>
+                                <td><span class="status-badge status-processing">Processing</span></td>
+                                <td><a href="#" class="btn btn-outline">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>University of Toronto</td>
+                                <td>Business Administration (MBA)</td>
+                                <td>Jul 28, 2023</td>
+                                <td><span class="status-badge status-approved">Accepted</span></td>
+                                <td><a href="#" class="btn btn-outline">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>University of London</td>
+                                <td>International Relations (MA)</td>
+                                <td>Sep 01, 2023</td>
+                                <td><span class="status-badge status-pending">Under Review</span></td>
+                                <td><a href="#" class="btn btn-outline">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Application Process</h3>
+                    </div>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Select Programs & Universities</h4>
+                                <p>Choose the programs and universities that match your academic goals</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Prepare Documents</h4>
+                                <p>Gather all required documents (transcripts, recommendation letters, etc.)</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Submit Applications</h4>
+                                <p>Complete and submit your applications before the deadlines</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Track Status</h4>
+                                <p>Monitor your application status and respond to any requests</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Travel Services Section -->
+            <div class="dashboard-content" id="travel-section">
+                <div class="dashboard-header">
+                    <h1>Travel Services</h1>
+                    <p>Book flights, hotels, and travel packages</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Flight Booking</h3>
+                        <button class="btn btn-primary">Book Flight</button>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label class="form-label">From</label>
+                            <input type="text" class="form-control" placeholder="Departure city">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">To</label>
+                            <input type="text" class="form-control" placeholder="Destination city">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Departure Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Return Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-accent">Search Flights</button>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Hotel Reservations</h3>
+                        <button class="btn btn-primary">Find Hotels</button>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label class="form-label">Destination</label>
+                            <input type="text" class="form-control" placeholder="City or hotel name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Check-in Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Check-out Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-accent">Search Hotels</button>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>My Travel Bookings</h3>
+                    </div>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Booking Type</th>
+                                <th>Destination</th>
+                                <th>Dates</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Flight</td>
+                                <td>New York to London</td>
+                                <td>Sep 20, 2023</td>
+                                <td><span class="status-badge status-approved">Confirmed</span></td>
+                                <td><a href="#" class="btn btn-outline">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>Hotel</td>
+                                <td>London City Hotel</td>
+                                <td>Sep 20-25, 2023</td>
+                                <td><span class="status-badge status-approved">Confirmed</span></td>
+                                <td><a href="#" class="btn btn-outline">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Other sections would be implemented similarly -->
+            <div class="dashboard-content" id="applications-section">
+                <div class="dashboard-header">
+                    <h1>My Applications</h1>
+                    <p>View and manage all your applications</p>
+                </div>
+                <!-- Applications content will go here -->
+            </div>
+            
+            <div class="dashboard-content" id="bookings-section">
+                <div class="dashboard-header">
+                    <h1>My Bookings</h1>
+                    <p>Manage your travel and accommodation bookings</p>
+                </div>
+                <!-- Bookings content will go here -->
+            </div>
+            
+            <div class="dashboard-content" id="documents-section">
+                <div class="dashboard-header">
+                    <h1>My Documents</h1>
+                    <p>Upload and manage your important documents</p>
+                </div>
+                <!-- Documents content will go here -->
+            </div>
+            
+            <div class="dashboard-content" id="visa-section">
+                <div class="dashboard-header">
+                    <h1>Visa Status</h1>
+                    <p>Track your visa application status</p>
+                </div>
+                <!-- Visa status content will go here -->
+            </div>
+            
+            <div class="dashboard-content" id="saved-section">
+                <div class="dashboard-header">
+                    <h1>Saved Items</h1>
+                    <p>Your saved universities and travel options</p>
+                </div>
+                <!-- Saved items content will go here -->
+            </div>
+            
+            <div class="dashboard-content" id="settings-section">
+                <div class="dashboard-header">
+                    <h1>Settings</h1>
+                    <p>Customize your dashboard experience</p>
+                </div>
+                <!-- Settings content will go here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modals -->
+    <div class="service-modal" id="service-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeServiceModal()">&times;</span>
+            
+            <div class="service-content active" id="university-admissions-content">
+                <h2>University Admissions Assistance</h2>
+                <p>We help you find and apply to universities worldwide that match your academic profile and career goals.</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Profile Assessment</h4>
+                            <p>We evaluate your academic background, test scores, and preferences</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>University Shortlisting</h4>
+                            <p>We recommend universities that best fit your profile and goals</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Application Preparation</h4>
+                            <p>We help you prepare all required documents and applications</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Submission & Follow-up</h4>
+                            <p>We submit applications and track their status</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="study-abroad.html" class="btn btn-accent">Start Your Application</a>
+            </div>
+            
+            <div class="service-content" id="visa-assistance-content">
+                <h2>Visa Assistance</h2>
+                <p>Our experts guide you through the entire visa application process for your chosen study destination.</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Document Preparation</h4>
+                            <p>We help you gather all required documents for your visa application</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Application Form Assistance</h4>
+                            <p>We guide you through filling out the visa application forms correctly</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Interview Preparation</h4>
+                            <p>We prepare you for the visa interview with mock sessions</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Status Tracking</h4>
+                            <p>We track your application status and keep you updated</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="visa.html" class="btn btn-accent">Get Visa Assistance</a>
+            </div>
+            
+            <div class="service-content" id="flight-booking-content">
+                <h2>Flight Booking</h2>
+                <p>Book your flights to your study destination with our special student fares.</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Search Flights</h4>
+                            <p>Enter your departure and destination cities along with travel dates</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Compare Options</h4>
+                            <p>View different flight options and choose the best one for you</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Book & Pay</h4>
+                            <p>Complete your booking with secure payment options</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Receive Confirmation</h4>
+                            <p>Get your e-ticket and booking confirmation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="travel-tours.html" class="btn btn-accent">Book Flight Now</a>
+            </div>
+            
+            <div class="service-content" id="accommodation-content">
+                <h2>Accommodation Services</h2>
+                <p>Find the perfect housing option near your university campus.</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Search Options</h4>
+                            <p>Tell us your preferences for location, budget, and amenities</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>View Listings</h4>
+                            <p>Browse through curated accommodation options</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Virtual Tours</h4>
+                            <p>Take virtual tours of shortlisted properties</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Book & Confirm</h4>
+                            <p>Secure your accommodation with our assistance</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="hotels.html" class="btn btn-accent">Find Accommodation</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'index.html';
+            }
+        }
+        
+        // Animate progress bars on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+            
+            // Sidebar navigation
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            const dashboardContents = document.querySelectorAll('.dashboard-content');
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show the corresponding section
+                    const section = this.getAttribute('data-section');
+                    
+                    // Hide all sections
+                    dashboardContents.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show the selected section
+                    const targetSection = document.getElementById(`${section}-section`);
+                    if (targetSection) {
+                        targetSection.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Service cards functionality
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const service = this.getAttribute('data-service');
+                    openServiceModal(service);
+                });
+            });
+        });
+        
+        function openServiceModal(service) {
+            const modal = document.getElementById('service-modal');
+            const allContents = document.querySelectorAll('.service-content');
+            
+            // Hide all service contents
+            allContents.forEach(content => content.classList.remove('active'));
+            
+            // Show the selected service content
+            document.getElementById(service + '-content').classList.add('active');
+            
+            // Display the modal
+            modal.style.display = 'flex';
+        }
+        
+        function closeServiceModal() {
+            document.getElementById('service-modal').style.display = 'none';
+        }
+        
+        // Close modal if clicked outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('service-modal');
+            if (event.target === modal) {
+                closeServiceModal();
+            }
+        });
+    </script>
+</body>
+</html>

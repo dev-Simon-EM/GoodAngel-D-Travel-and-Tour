@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="creator" content="created by Sky to Aid Traveling and Tourism">
+    <title>Tours & Travel - Good Angel Travel And Tour</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* Page-specific styles below; header/nav styling provided by front.css */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --success: #10b981;
+            --danger: #ef4444; 
+            --warning: #f59e0b;
+            --light-gray: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: white;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Header styles handled by front.css - removed duplicate to keep header consistent site-wide */
+        
+        .btn-accent:hover {
+            background: #e69008;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(rgba(37, 99, 235, 0.05), rgba(245, 158, 11, 0.05));
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+        
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        /* Travel Booking Widget */
+        .booking-widget {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        /* Destination Categories */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .category-tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 30px;
+            margin: 5px;
+            background: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .category-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Packages Grid */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .package-img {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .package-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .package-card:hover .package-img img {
+            transform: scale(1.1);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .package-content {
+            padding: 20px;
+        }
+        
+        .package-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .package-details {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+        
+        .package-price span {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+        
+        /* Travel Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--gray);
+        }
+        
+        .testimonial-client {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>GOOD ANGEL TRAVELS & TOUR
+                </a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+                <ul class="nav-links" id="main-nav" aria-hidden="true">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="front.html">STUDY ABROAD</a></li>
+                    <li><a href="tours.html">TOURS & TRAVEL</a></li>
+                    <li><a href="hotels.html">HOTELS</a></li>
+                    <li><a href="visa.html">VISA SERVICES</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <!-- Auth buttons shown inside the mobile menu (hidden on larger screens) -->
+                    <li class="nav-auth" aria-hidden="true">
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                    </li>
+                </ul> 
+                <div class="auth-buttons">
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login/Signup Modal -->
+    <div id="authModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close" onclick="closeAuthModal()" aria-label="Close">&times;</button>
+            <div class="auth-tabs">
+                <button class="tab-link active" onclick="openTab(event, 'loginTab')">Login</button>
+                <button class="tab-link" onclick="openTab(event, 'signupTab')">Sign Up</button>
+            </div>
+
+            <div id="loginTab" class="tab-content active">
+                <h2>Login to Your Account</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div class="auth-switch">
+                    Don't have an account? <a href="#" onclick="openTab(event, 'signupTab')">Sign up</a>
+                </div>
+            </div>
+            
+            <div id="signupTab" class="tab-content">
+                <h2>Create an Account</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <input type="password" id="signupConfirm" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+                <div class="auth-switch">
+                    Already have an account? <a href="#" onclick="openTab(event, 'loginTab')">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover the World with Us</h1>
+                <p>Experience unforgettable journeys to breathtaking destinations with our expertly crafted tours and travel packages</p>
+                <a href="#destinations" class="btn btn-accent">EXPLORE DESTINATIONS</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="booking-widget">
+                <h2 class="section-title">Plan Your Perfect Trip</h2>
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input type="text" id="destination" placeholder="Where to?">
+                    </div>
+                    <div class="form-group">
+                        <label for="check-in">Check-in</label>
+                        <input type="date" id="check-in">
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out">Check-out</label>
+                        <input type="date" id="check-out">
+                    </div>
+                    <div class="form-group">
+                        <label for="travelers">Travelers</label>
+                        <select id="travelers">
+                            <option value="1">1 Traveler</option>
+                            <option value="2">2 Travelers</option>
+                            <option value="3">3 Travelers</option>
+                            <option value="4">4 Travelers</option>
+                            <option value="5">5+ Travelers</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-accent" style="width: 100%;">SEARCH</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+                <p>Explore our most sought-after travel destinations around the world</p>
+            </div>
+            
+            <div class="category-tabs">
+                <div class="category-tab active" data-category="all">All Destinations</div>
+                <div class="category-tab" data-category="europe">Europe</div>
+                <div class="category-tab" data-category="asia">Asia</div>
+                <div class="category-tab" data-category="africa">Africa</div>
+                <div class="category-tab" data-category="americas">Americas</div>
+            </div>
+            
+            <div class="packages-grid">
+                <div class="package-card" data-category="europe">
+                    <div class="package-img">
+                        <img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="European Tour">
+                        <div class="package-badge">BEST SELLER</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>European Capitals Tour</h3>
+                        <p>Explore the historic capitals of Europe in this 10-day luxury tour</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-clock"></i> 10 days</span>
+                            <span><i class="fas fa-map-marker-alt"></i> 5 countries</span>
+                        </div>
+                        <div class="package-price">
+                            $2,499 <span>per person</span>
+                        </div>
+                        <a href="europe-tour.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="package-card" data-category="asia">
+                    <div class="package-img">
+                        <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asian Adventure">
+                        <div class="package-badge">ADVENTURE</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Southeast Asia Adventure</h3>
+                        <p>Experience the culture and beauty of Southeast Asia</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-clock"></i> 14 days</span>
+                            <span><i class="fas fa-map-marker-alt"></i> 4 countries</span>
+                        </div>
+                        <div class="package-price">
+                            $1,899 <span>per person</span>
+                        </div>
+                        <a href="asia-tour.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="package-card" data-category="africa">
+                    <div class="package-img">
+                        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="African Safari">
+                        <div class="package-badge">WILDLIFE</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>African Safari Adventure</h3>
+                        <p>Witness incredible wildlife and stunning landscapes</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-clock"></i> 12 days</span>
+                            <span><i class="fas fa-map-marker-alt"></i> 3 countries</span>
+                        </div>
+                        <div class="package-price">
+                            $3,499 <span>per person</span>
+                        </div>
+                        <a href="africa-tour.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="package-card" data-category="americas">
+                    <div class="package-img">
+                        <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="USA Tour">
+                        <div class="package-badge">NEW</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>USA Coast to Coast</h3>
+                        <p>From New York to California, experience the diversity of America</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-clock"></i> 15 days</span>
+                            <span><i class="fas fa-map-marker-alt"></i> 8 cities</span>
+                        </div>
+                        <div class="package-price">
+                            $3,199 <span>per person</span>
+                        </div>
+                        <a href="usa-tour.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="package-card" data-category="europe">
+                    <div class="package-img">
+                        <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mediterranean Cruise">
+                        <div class="package-badge">CRUISE</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Mediterranean Cruise</h3>
+                        <p>Sail the beautiful Mediterranean Sea and visit iconic coastal cities</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-clock"></i> 7 days</span>
+                            <span><i class="fas fa-map-marker-alt"></i> 6 ports</span>
+                        </div>
+                        <div class="package-price">
+                            $1,799 <span>per person</span>
+                        </div>
+                        <a href="mediterranean-cruise.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="package-card" data-category="asia">
+                    <div class="package-img">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Japan Cultural Tour">
+                        <div class="package-badge">CULTURAL</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Japan Cultural Journey</h3>
+                        <p>Immerse yourself in the rich traditions and modern wonders of Japan</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-clock"></i> 9 days</span>
+                            <span><i class="fas fa-map-marker-alt"></i> 5 cities</span>
+                        </div>
+                        <div class="package-price">
+                            $2,899 <span>per person</span>
+                        </div>
+                        <a href="japan-tour.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Travel Services</h2>
+                <p>Everything you need for a perfect journey</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Flight Booking</h3>
+                    <p>Find the best deals on flights to destinations worldwide</p>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Hotel Reservations</h3>
+                    <p>Book accommodations from budget to luxury hotels</p>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Car Rentals</h3>
+                    <p>Get the best rates on rental cars worldwide</p>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h3>Visa Assistance</h3>
+                    <p>Expert help with visa applications and documentation</p>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h3>Vacation Packages</h3>
+                    <p>All-inclusive packages for stress-free travel</p>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Travel Insurance</h3>
+                    <p>Comprehensive coverage for your peace of mind</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Travelers Say</h2>
+                <p>Read about experiences from our satisfied customers</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"The European tour exceeded all our expectations. The accommodations were excellent and our guide was knowledgeable and friendly. We'll definitely book with Good Angel again!"</p>
+                    </div>
+                    <div class="testimonial-client">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>Michael Johnson</h4>
+                            <p>European Capitals Tour</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Our safari in Africa was the trip of a lifetime. Good Angel Travels took care of every detail, from flights to accommodations to game drives. Everything was perfectly organized."</p>
+                    </div>
+                    <div class="testimonial-client">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>Sarah Williams</h4>
+                            <p>African Safari Adventure</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"The Japan cultural tour was incredible. We experienced both traditional and modern Japan, and the guides were exceptional. Thank you for such a memorable journey!"</p>
+                    </div>
+                    <div class="testimonial-client">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>David Chen</h4>
+                            <p>Japan Cultural Journey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Explore the World?</h2>
+            <p>Contact us today to start planning your dream vacation</p>
+            <a href="contact.html" class="btn btn-accent">GET STARTED</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Good Angel Travels & Tour</h3>
+                    <p>Your trusted partner for unforgettable travel experiences around the world.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Travel Services</h3>
+                    <ul>
+                        <li><a href="#">Flight Booking</a></li>
+                        <li><a href="#">Hotel Reservations</a></li>
+                        <li><a href="#">Vacation Packages</a></li>
+                        <li><a href="#">Car Rentals</a></li>
+                        <li><a href="#">Travel Insurance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Destinations</h3>
+                    <ul>
+                        <li><a href="#">Europe</a></li>
+                        <li><a href="#">Asia</a></li>
+                        <li><a href="#">Africa</a></li>
+                        <li><a href="#">North America</a></li>
+                        <li><a href="#">South America</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 3rd floor, Nicon Insurance Plaza, Opp.Vfs, CBD, Abuja, Nigeria</li>
+                        <li><i class="fas fa-phone"></i> +234 7039-630-687</li>
+                        <li><i class="fas fa-envelope"></i> info@goodangeltravels.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-5PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Good Angel Travels & Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

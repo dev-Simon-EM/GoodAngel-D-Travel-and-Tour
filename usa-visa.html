@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Student Visa - Good Angel Travels & Tour</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>GOODANGEL D TRAVEL & TOUR LTD
+                </a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+                <ul class="nav-links" id="main-nav" aria-hidden="true">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="front.html">STUDY ABROAD</a></li>
+                    <li><a href="travel-tours.html">TOURS & TRAVEL</a></li>
+                    <li><a href="hotels.html">HOTELS</a></li>
+                    <li><a href="visa.html">VISA SERVICES</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <!-- Auth buttons shown inside the mobile menu (hidden on larger screens) -->
+                    <li class="nav-auth" aria-hidden="true">
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                    </li>
+                </ul> 
+                <div class="auth-buttons">
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1557838923-2985c318be48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); height: 80vh;">
+        <div class="container">
+            <div class="hero-content" style="height: 50vh;">
+                <h1>US Student Visa (F-1) Requirements</h1>
+                <p>Complete guide to obtaining your F-1 visa for studying in the United States</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="country-info">
+        <div class="container">
+            <h2 class="section-title">F-1 Visa Requirements</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Required Documents</h3>
+                    <ul class="info-list">
+                        <li>Valid passport</li>
+                        <li>Form I-20 from your school</li>
+                        <li>DS-160 confirmation page</li>
+                        <li>Visa application fee receipt</li>
+                        <li>SEVIS fee receipt</li>
+                        <li>Passport-style photograph</li>
+                        <li>Academic transcripts</li>
+                        <li>Standardized test scores</li>
+                        <li>Financial evidence</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Financial Requirements</h3>
+                    <ul class="info-list">
+                        <li>Proof of sufficient funds for first year</li>
+                        <li>Evidence of funding for subsequent years</li>
+                        <li>Bank statements (last 3-6 months)</li>
+                        <li>Sponsorship letters if applicable</li>
+                        <li>Scholarship award letters</li>
+                        <li>Estimated costs: $25,000 - $70,000/year</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Visa Interview</h3>
+                    <ul class="info-list">
+                        <li>Prepare to explain your study plans</li>
+                        <li>Demonstrate strong ties to home country</li>
+                        <li>Explain how you will fund your education</li>
+                        <li>Discuss post-study plans</li>
+                        <li>Answer questions clearly and honestly</li>
+                        <li>Bring all original documents</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="visa-process">
+        <div class="container">
+            <h2 class="section-title">Application Timeline</h2>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>3-6 Months Before</h3>
+                    <p>Receive I-20 from school, pay SEVIS fee</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>2-3 Months Before</h3>
+                    <p>Complete DS-160, pay visa fee, schedule interview</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>1-2 Months Before</h3>
+                    <p>Gather documents, prepare for interview</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Interview</h3>
+                    <p>Attend visa interview at US Embassy/Consulate</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>After Approval</h3>
+                    <p>Receive passport with visa, make travel arrangements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Help With Your Visa Application?</h2>
+                <p>Our visa experts can guide you through the entire process</p>
+                <a href="#contact" class="btn btn-accent">CONTACT OUR VISA TEAM</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Good Angel Travels & Tour</h3>
+                    <p>Helping students achieve their dreams of studying abroad since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="front.html#programs">Programs</a></li>
+                        <li><a href="front.html#visa">Visa Guidance</a></li>
+                        <li><a href="front.html#testimonials">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Visa Information</h3>
+                    <ul>
+                        <li><a href="usa-visa.html">US Student Visa</a></li>
+                        <li><a href="uk-visa.html">UK Student Visa</a></li>
+                        <li><a href="canada-visa.html">Canada Study Permit</a></li>
+                        <li><a href="australia-visa.html">Australia Student Visa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                         <li><i class="fas fa-map-marker-alt"></i> 3rd floor, Nicon Insurance Plaza, Opp.Vfs, CBD, Abuja, NIgeria</li>
+                        <li><i class="fas fa-phone"></i> +234 7039-630-687</li>
+                        <li><i class="fas fa-envelope"></i> info@goodangeltravels.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Good Angel Travels & Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Good Angel Travels & Tour</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .mission-vision {
+            padding: 80px 0;
+            background: #f8fafc;
+            margin-top: 5%;
+        }
+        
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .mv-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .mv-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .team-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 20px;
+        }
+        
+        .team-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="about.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>GOODANGEL D TRAVEL & TOUR LTD
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="study-programs.html">STUDY PROGRAMS</a></li>
+                    <li><a href="travel-tours.html">TRAVEL & TOURS</a></li>
+                    <li><a href="front.html#visa">VISA GUIDANCE</a></li>
+                    <li><a href="about.html" class="active">ABOUT US</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline" onclick="openAuthModal(); return false;">LOGIN</a>
+                    <a href="#" class="btn btn-outline" onclick="openAuthModal(); return false;">SIGN UP</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>ABOUT GOODANGEL D TRAVEL & TOUR LTD</h1>
+                <p>Your trusted partner in making Your Dreams Of Traveling & Studying Abroad come true</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="country-info">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                Founded in 2013, GOODANGEL D TRAVEL & TOUR LTD has been helping Travelers and Students achieve their dreams of Traveling to a new Country
+                or Studying abroad come through now for over a decade. We started with a simple mission:
+                 to make international Countries & Education accessible to everyone 
+                by providing comprehensive guidance and support throughout the entire process.
+            </p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Our Beginning</h3>
+                    <p>What began as a small consultancy has grown into a trusted Travel & Tour advisory service with thousands of success stories. Our founders, who themselves Have Traveled studied abroad, understood the challenges Travelers And Students face and built a company to address those needs.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Our Growth</h3>
+                    <p>Over the years, we've expanded our services to cover more countries and developed partnerships with educational institutions worldwide. Our team has grown to include education experts, visa specialists, and success coaches.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Our Future</h3>
+                    <p>We continue to innovate and improve our services, leveraging technology to make the study abroad process even more seamless. Our goal is to help even more students achieve their international education dreams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-vision">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To provide comprehensive, personalized, and accessible Traveling & Abroad Study Guidance that empowers Travelers And Students to achieve their 
+                        Traveling Expectations, Tour PLans as Well as Academic dreams while making the process stress-free and successful.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become the most trusted and innovative Travel,Study & Tours abroad consultancy, transforming lives through education, Relaxation through Tourism and creating a global community of successful international Businesses Through Our Traveling Guidance.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>Integrity, excellence, empathy, innovation, and student success are at the core of everything we do. We believe in transparency, personalized service, and going the extra mile for our Customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Students Helped</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Countries Covered</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Visa Success Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">University Partners</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Successful Tours</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                Our team of experienced education consultants, visa experts, and success coaches are dedicated to 
+                helping you achieve your study abroad dreams.
+            </p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-img">
+                       <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sarah Johnson">
+                    </div>
+                    <div class="team-info">
+                        <h3>Aunty Angels Name</h3>
+                        <div class="team-role">Founder & CEO</div>
+                        <p>With over 15 years in international education, Sarah founded Good Angel to make study abroad accessible to all.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Michael Chen">
+                    </div>
+                    <div class="team-info">
+                        <h3>Team member's name </h3>
+                        <div class="team-role">Visa Director</div>
+                        <p>Michael specializes in visa processes and has helped thousands of students secure their study permits.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="add image alt="Emma Rodriguez">
+                    </div>
+                    <div class="team-info">
+                        <h3>Team member's name</h3>
+                        <div class="team-role">Education Consultant</div>
+                        <p>Emma helps students find the perfect programs and universities based on their goals and interests.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="David Wilson">
+                    </div>
+                    <div class="team-info">
+                        <h3>Team member's name</h3>
+                        <div class="team-role">Success Coach</div>
+                        <p>David provides pre-departure guidance and ongoing support to ensure student success abroad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Begin Your Journey?</h2>
+                <p>Join thousands of successful students who have achieved their study abroad dreams with our guidance</p>
+                <a href="contact.html" class="btn btn-accent">GET STARTED TODAY</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Good Angel Travels & Tour</h3>
+                    <p>Helping students achieve their dreams of studying abroad since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="front.html#programs">Programs</a></li>
+                        <li><a href="front.html#visa">Visa Guidance</a></li>
+                        <li><a href="front.html#testimonials">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Countries</h3>
+                    <ul>
+                        <li><a href="united-states.html">United States</a></li>
+                        <li><a href="spain.html">Spain</a></li>
+                        <li><a href="study-programs.html?country=uk">United Kingdom</a></li>
+                        <li><a href="australia-page.html">Australia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                         <li><i class="fas fa-map-marker-alt"></i> 3rd floor, Nicon Insurance Plaza, Opp.Vfs, CBD, Abuja, NIgeria</li>
+                        <li><i class="fas fa-phone"></i> +234 7039-630-687</li>
+                        <li><i class="fas fa-envelope"></i> info@goodangeltravels.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Good Angel Travels & Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

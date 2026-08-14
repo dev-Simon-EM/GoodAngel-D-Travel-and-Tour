@@ -1,0 +1,193 @@
+/* Country Hero Section */
+.country-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-top: 80px;
+}
+
+.country-hero-content {
+    max-width: 800px;
+}
+
+.country-hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Country Info Section */
+.country-info {
+    padding: 80px 0;
+    background: white;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.info-card {
+    background: var(--light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-card h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondary);
+}
+
+.info-list {
+    list-style: none;
+}
+
+.info-list li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.info-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: bold;
+}
+
+/* Universities Section */
+.universities {
+    padding: 80px 0;
+    background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+}
+
+.universities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.university-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.university-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.university-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.university-content {
+    padding: 20px;
+}
+
+.university-content h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.university-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    color: var(--gray);
+}
+
+.university-details span {
+    display: flex;
+    align-items: center;
+}
+
+.university-details i {
+    margin-right: 5px;
+    color: var(--primary);
+}
+
+/* Visa Process Section */
+.visa-process {
+    padding: 80px 0;
+    background: white;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 20px;
+}
+
+.step h3 {
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 80px 0;
+    background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA in International Business - Good Angel Travels & Tour</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .program-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .program-detail {
+            padding: 80px 0;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .program-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .program-sidebar {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .program-info {
+            margin-bottom: 30px;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .info-value {
+            color: var(--gray);
+        }
+        
+        .curriculum-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+        
+        .accordion {
+            margin-top: 30px;
+        }
+        
+        .accordion-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .accordion-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .requirements-section {
+            padding: 80px 0;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .requirement-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .requirement-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>GOODANGEL D TRAVEL & TOUR LTD
+                </a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+                <ul class="nav-links" id="main-nav" aria-hidden="true">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="front.html">STUDY ABROAD</a></li>
+                    <li><a href="travel-tours.html">TOURS & TRAVEL</a></li>
+                    <li><a href="hotels.html">HOTELS</a></li>
+                    <li><a href="visa.html">VISA SERVICES</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <!-- Auth buttons shown inside the mobile menu (hidden on larger screens) -->
+                    <li class="nav-auth" aria-hidden="true">
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                    </li>
+                </ul> 
+                <div class="auth-buttons">
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    </header>
+
+    <section class="program-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>MBA in International Business</h1>
+                <p>Harvard Business School - Transform your career with a world-class MBA education</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-detail">
+        <div class="container">
+            <div class="program-grid">
+                <div class="program-content">
+                    <h2>Program Overview</h2>
+                    <p>The MBA in International Business at Harvard Business School is designed for aspiring global leaders who want to make a significant impact in the world of business. This prestigious program combines rigorous academic training with real-world application, preparing students for leadership roles in multinational corporations, international organizations, and global startups.</p>
+                    
+                    <h3>Program Highlights</h3>
+                    <ul class="info-list">
+                        <li>World-renowned faculty with extensive industry experience</li>
+                        <li>Global immersion experiences in key business markets</li>
+                        <li>Case-based learning methodology</li>
+                        <li>Extensive alumni network of business leaders</li>
+                        <li>Career services with global recruitment opportunities</li>
+                        <li>Entrepreneurship and innovation focus</li>
+                    </ul>
+                    
+                    <h3>Learning Outcomes</h3>
+                    <p>Upon completion of this program, graduates will be able to:</p>
+                    <ul class="info-list">
+                        <li>Develop and implement global business strategies</li>
+                        <li>Lead cross-cultural teams effectively</li>
+                        <li>Analyze and navigate complex international markets</li>
+                        <li>Make data-driven decisions in uncertain environments</li>
+                        <li>Create sustainable business models for global impact</li>
+                    </ul>
+                </div>
+                
+                <div class="program-sidebar">
+                    <div class="program-info">
+                        <h3>Program Details</h3>
+                        <div class="info-item">
+                            <span class="info-label">University</span>
+                            <span class="info-value">Harvard Business School</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Location</span>
+                            <span class="info-value">Boston, Massachusetts, USA</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">2 years</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tuition Fee</span>
+                            <span class="info-value">$45,000/year</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Application Deadline</span>
+                            <span class="info-value">January 5, 2024</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Start Date</span>
+                            <span class="info-value">September 2024</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Degree</span>
+                            <span class="info-value">Master of Business Administration</span>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn btn-accent" style="width: 100%; margin-bottom: 15px;">Apply Now</a>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Request Information</a>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background: #f8fafc; border-radius: 8px;">
+                        <h4 style="margin-bottom: 15px;">Need Help Applying?</h4>
+                        <p style="margin-bottom: 15px; font-size: 0.9rem;">Our advisors can guide you through the application process.</p>
+                        <a href="contact.html" class="btn" style="width: 100%;">Contact Advisor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="curriculum-section">
+        <div class="container">
+            <h2 class="section-title">Program Curriculum</h2>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Year 1: Core Foundation
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>First Semester</h4>
+                        <ul class="info-list">
+                            <li>Financial Reporting and Control</li>
+                            <li>Leadership and Organizational Behavior</li>
+                            <li>Marketing Management</li>
+                            <li>Technology and Operations Management</li>
+                            <li>Business, Government and International Economy</li>
+                        </ul>
+                        
+                        <h4>Second Semester</h4>
+                        <ul class="info-list">
+                            <li>Strategy</li>
+                            <li>Leadership and Corporate Accountability</li>
+                            <li>Finance</li>
+                            <li>The Entrepreneurial Manager</li>
+                            <li>Field Global Immersion</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Year 2: Specialization & Electives
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>International Business Focus</h4>
+                        <ul class="info-list">
+                            <li>Global Strategic Management</li>
+                            <li>Cross-Cultural Leadership</li>
+                            <li>International Marketing Strategy</li>
+                            <li>Global Supply Chain Management</li>
+                            <li>Emerging Markets Strategy</li>
+                        </ul>
+                        
+                        <h4>Elective Courses</h4>
+                        <ul class="info-list">
+                            <li>Digital Transformation</li>
+                            <li>Social Enterprise</li>
+                            <li>Negotiation and Conflict Resolution</li>
+                            <li>Business Analytics</li>
+                            <li>Venture Capital and Private Equity</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Experiential Learning
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>Global Immersion Programs</h4>
+                        <ul class="info-list">
+                            <li>Asia-Pacific Business immersion (2 weeks)</li>
+                            <li>European Market Study Tour (2 weeks)</li>
+                            <li>Latin America Emerging Markets Project</li>
+                        </ul>
+                        
+                        <h4>Capstone Project</h4>
+                        <p>Students work on real-world international business challenges with partner organizations, developing comprehensive business solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="requirements-section">
+        <div class="container">
+            <h2 class="section-title">Admission Requirements</h2>
+            
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic Requirements</h3>
+                    <ul class="info-list">
+                        <li>Bachelor's degree from accredited institution</li>
+                        <li>Minimum GPA of 3.0/4.0 or equivalent</li>
+                        <li>Official academic transcripts</li>
+                        <li>GMAT score of 650+ or GRE equivalent</li>
+                    </ul>
+                </div>
+                
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Application Documents</h3>
+                    <ul class="info-list">
+                        <li>Completed application form</li>
+                        <li>Statement of purpose</li>
+                        <li>Professional resume/CV</li>
+                        <li>Two letters of recommendation</li>
+                        <li>Proof of English proficiency (IELTS/TOEFL)</li>
+                    </ul>
+                </div>
+                
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Professional Experience</h3>
+                    <ul class="info-list">
+                        <li>Minimum 2 years of work experience</li>
+                        <li>Professional achievements</li>
+                        <li>Leadership experience</li>
+                        <li>International exposure (preferred)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="contact.html" class="btn btn-accent">Start Your Application</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Career?</h2>
+                <p>Join the next cohort of global business leaders at Harvard Business School</p>
+                <a href="contact.html" class="btn btn-accent">APPLY NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Good Angel Travels & Tour</h3>
+                    <p>Helping students achieve their dreams of studying abroad since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="front.html#programs">Programs</a></li>
+                        <li><a href="front.html#visa">Visa Guidance</a></li>
+                        <li><a href="front.html#testimonials">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="mba-program.html">MBA in International Business</a></li>
+                        <li><a href="msc-program.html">MSc in Computer Science</a></li>
+                        <li><a href="ba-program.html">BA in Fine Arts</a></li>
+                        <li><a href="front.html#programs">View All Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 3rd floor, Nicon Insurance Plaza, Opp.Vfs, CBD, Abuja, NIgeria</li>
+                        <li><i class="fas fa-phone"></i> +234 7039-630-687</li>
+                        <li><i class="fas fa-envelope"></i> info@goodangeltravels.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Good Angel Travels & Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

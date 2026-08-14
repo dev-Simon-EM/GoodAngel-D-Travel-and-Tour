@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tours - Good Angel Travel And Tour</title>
+  <link rel="stylesheet" href="front.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>GOOD ANGEL TRAVELS & TOUR
+                </a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+                <ul class="nav-links" id="main-nav" aria-hidden="true">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="front.html">STUDY ABROAD</a></li>
+                    <li><a href="tours.html">TOURS & TRAVEL</a></li>
+                    <li><a href="hotels.html">HOTELS</a></li>
+                    <li><a href="visa.html">VISA SERVICES</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <!-- Auth buttons shown inside the mobile menu (hidden on larger screens) -->
+                    <li class="nav-auth" aria-hidden="true">
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                    </li>
+                </ul> 
+                <div class="auth-buttons">
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login/Signup Modal -->
+    <div id="authModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close" onclick="closeAuthModal()" aria-label="Close">&times;</button>
+            <div class="auth-tabs">
+                <button class="tab-link active" onclick="openTab(event, 'loginTab')">Login</button>
+                <button class="tab-link" onclick="openTab(event, 'signupTab')">Sign Up</button>
+            </div>
+
+            <div id="loginTab" class="tab-content active">
+                <h2>Login to Your Account</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div class="auth-switch">
+                    Don't have an account? <a href="#" onclick="openTab(event, 'signupTab')">Sign up</a>
+                </div>
+            </div>
+            
+            <div id="signupTab" class="tab-content">
+                <h2>Create an Account</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <input type="password" id="signupConfirm" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+                <div class="auth-switch">
+                    Already have an account? <a href="#" onclick="openTab(event, 'loginTab')">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <main class="container" style="padding: 100px 0; text-align:center;">
+    <h1>Tour pages</h1>
+    <p>The detailed tours page content is available at the original file <code>Tours-travles.html</code>.</p>
+    <p>This new <code>tours.html</code> is created to provide a consistent filename. If you'd like, I can copy the full content from the old file into this one so the old filename can be removed.</p>
+    <p><a class="btn" href="Tours-travles.html">Open original tours page</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Good Angel Travel And Tour</p>
+    </div>
+  </footer>
+    <script src="script.js"></script>
+</body>
+</html>

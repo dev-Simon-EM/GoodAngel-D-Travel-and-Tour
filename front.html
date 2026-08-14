@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="creator" content="created by Sky to Aid Traveling and Tourism">
+    <title>Good Angel Travel And Tour</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav class="navbar">
+
+            <a href="about.html" class="logo">
+                <i class="fas fa-graduation-cap"></i> GOODANGEL D TRAVEL & TOURS
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="study-programs.html">STUDY PROGRAMS</a></li>
+                <li><a href="travel-tours.html">TRAVEL & TOURS</a></li>
+                <li><a href="#visa">VISA GUIDANCE</a></li>
+                <li><a href="#testimonials">SUCCESS STORIES</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+            </ul>
+
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline">LOGIN</a>
+                <a href="#" class="btn btn-outline">SIGN UP</a>
+            </div>
+
+        </nav>
+    </div>
+</header>
+
+    <!-- Login/Signup Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+            <div class="auth-tabs">
+                <button class="tab-link active" onclick="openTab(event, 'loginTab')">Login</button>
+                <button class="tab-link" onclick="openTab(event, 'signupTab')">Sign Up</button>
+            </div>
+            <div id="loginTab" class="tab-content active">
+                <h2>Welcome Back</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <p class="auth-switch">Don't have an account? <a href="#" onclick="openTab(event, 'signupTab')">Sign up</a></p>
+            </div>
+            
+            <div id="signupTab" class="tab-content">
+                <h2>Create Account</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <input type="password" id="signupConfirm" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </form>
+                <p class="auth-switch">Already have an account? <a href="#" onclick="openTab(event, 'loginTab')">Login</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-----Hero section-->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Study Abroad Made Simple</h1>
+                <p>Discover The Perfect Educational Program Overseas And Get Expert Guidance On Visa Requirements All In One Place</p>
+                <a href="#programs" class="btn btn-accent">EXPLORE PROGRAMS</a>
+
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="search for programs, universities or countries...">
+                    <button class="search-btn">SEARCH</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Add this HTML for the new sections after the hero section -->
+    <section class="countries-section">
+        <div class="container">
+            <h2 class="section-title">Explore Countries</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 40px;">
+                Discover amazing destinations around the world
+            </p>
+            
+            <div class="countries-grid">
+                <div class="country-card">
+                    <div class="country-img">
+                        <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="United States">
+                    </div>
+                    <div class="country-content">
+                        <h3>United States</h3>
+                        <p>Explore the diverse landscapes and cities of the USA</p>
+                        <a href="united-states.html" class="btn">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="country-card">
+                    <div class="country-img">
+                        <img src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spain">
+                    </div>
+                    <div class="country-content">
+                        <h3>Spain</h3>
+                        <p>Experience the vibrant culture and beautiful coastlines</p>
+                        <a href="spain.html" class="btn">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="country-card">
+                    <div class="country-img">
+                        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="United Kingdom">
+                    </div>
+                    <div class="country-content">
+                        <h3>United Kingdom</h3>
+                        <p>Discover historic landmarks and modern attractions</p>
+                        <a href="study-programs.html?country=uk" class="btn">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="country-card">
+                    <div class="country-img">
+                        <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Portugal">
+                    </div>
+                    <div class="country-content">
+                        <h3>Portugal</h3>
+                        <p>Enjoy stunning beaches and rich cultural heritage</p>
+                        <a href="portugal.html" class="btn">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 40px;">
+                Comprehensive support for your travel and study abroad journey
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>University Admissions</h3>
+                    <p>Expert guidance in selecting and applying to universities worldwide</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h3>Visa Assistance</h3>
+                    <p>Complete support with visa applications and documentation</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Accommodation</h3>
+                    <p>Help finding safe and comfortable housing options abroad</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel Arrangements</h3>
+                    <p>Flight bookings and travel planning for your journey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="news-updates">
+        <div class="container">
+            <h2 class="section-title">Latest News & Updates</h2>
+            
+            <div class="news-ticker">
+                <div class="news-header">
+                    <div class="live-indicator">
+                        <span class="live-pulse"></span> LIVE UPDATES
+                    </div>
+                    <h3>Important Announcements</h3>
+                </div>
+                
+                <div class="news-content">
+                    <div class="news-item">
+                        <span class="news-date">Oct 15, 2023</span>
+                        <span class="news-text">New scholarship opportunities available for Spring 2024 intake</span>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">Oct 10, 2023</span>
+                        <span class="news-text">Updated visa requirements for UK student visas</span>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">Oct 5, 2023</span>
+                        <span class="news-text">Virtual university fair with representatives from 50+ institutions</span>
+                    </div>
+                </div>
+                
+                <div class="news-controls">
+                    <button class="news-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="news-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need Personalized Assistance?</h2>
+            <p>Our education consultants are ready to help you achieve your study abroad dreams</p>
+            
+            <div class="phone-number">
+                <i class="fas fa-phone-alt"></i>
+                <span>+234 7039-630-687</span>
+            </div>
+            
+            <a href="#contact" class="btn">Schedule a Free Consultation</a>
+        </div>
+    </section>
+    
+    <!---Features section-->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Expert Guidance</h3>
+                    <p>Our team of experienced counselors provides personalized advice to help you make the right choices for your educational journey.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Network</h3>
+                    <p>We have partnerships with universities and institutions worldwide, giving you access to a wide range of opportunities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"8l>
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>End-to-End Support</h3>
+                    <p>From application to arrival, we provide comprehensive support to ensure a smooth transition to your new academic environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!---Programs section-->
+    <section class="Program" id="programs">
+        <div class="container">
+            <h2 class="section-title">Featured Programs</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="country">Country</label>
+                    <select id="country">
+                        <option value="all">All Countries</option>
+                        <option value="usa">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="canada">Canada</option>
+                        <option value="australia">Australia</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="degree">Degree Level</label>
+                    <select id="degree">
+                        <option value="all">All Degrees</option>
+                        <option value="bachelor">Bachelor's</option>
+                        <option value="master">Master's</option>
+                        <option value="phd">PhD</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="field">Field of Study</label>
+                    <select id="field">
+                        <option value="all">All Fields</option>
+                        <option value="business">Business</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="arts">Arts & Humanities</option>
+                    </select>
+                </div>
+            </div>
+            <div class="programs-grid">
+                <div class="Program-card">
+                    <div class="program-img">
+                        <img src="https://media.istockphoto.com/id/1450330487/photo/asian-female-tourist-student-on-city-streets.jpg?s=612x612&w=0&k=20&c=PtOl9cTyM11v8ycqj2T0Jesn7FyVUJ2C354cxxCfdf0=" alt="Business Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>MBA in International Business</h3>
+                        <p>Harvard Business School</p>
+                        <div class="program-details">
+                            <span><i class="fas fa-map-marker-alt"></i> United States</span>
+                            <span><i class="fas fa-clock"></i> 2 Years</span>
+                        </div>
+                        <div class="program-price">$45,000/year</div>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="Program-card">
+                    <div class="program-img">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Engineering Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>MSc in Computer Science</h3>
+                        <p>Stanford University</p>
+                        <div class="program-details">
+                            <span><i class="fas fa-map-marker-alt"></i> United States</span>
+                            <span><i class="fas fa-clock"></i> 1.5 Years</span>
+                        </div>
+                        <div class="program-price">$42,000/year</div>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="Program-card">
+                    <div class="program-img">
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arts Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>BA in Fine Arts</h3>
+                        <p>University of the Arts London</p>
+                        <div class="program-details">
+                            <span><i class="fas fa-map-marker-alt"></i> United Kingdom</span>
+                            <span><i class="fas fa-clock"></i> 3 Years</span>
+                        </div>
+                        <div class="program-price">£22,000/year</div>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!---Visa section-->
+    <section class="visa" id="visa">
+        <div class="container">
+            <h2 class="section-title">Visa Guidance</h2>
+            <p class="section-subtitle">We provide expert assistance with visa applications for various countries</p>
+            
+            <div class="countries-grid">
+                <div class="Country-card">
+                    <div class="Country-flag">
+                        <img src="https://media.istockphoto.com/id/488157695/photo/studying-abroad-in-london.jpg?s=612x612&w=0&k=20&c=684Qwk7WFV6yU9LDAEUdWRwqyeixP32_GEQANza1ZnI=" alt="USA Flag">
+                    </div>
+                    <div class="Country-content">
+                        <h3>United States</h3>
+                        <p>F-1 Student Visa</p>
+                        <a href="usa-visa.html" class="btn">Visa Details</a>
+                    </div>
+                </div>
+                <div class="Country-card">
+                    <div class="Country-flag">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="UK Flag">
+                    </div>
+                    <div class="Country-content">
+                        <h3>United Kingdom</h3>
+                        <p>Tier 4 Student Visa</p>
+                        <a href="uk-visa.html" class="btn">Visa Details</a>
+                    </div>
+                </div>
+                <div class="Country-card">
+                    <div class="Country-flag">
+                    <div class="Country-content">
+                        <img src="https://media.istockphoto.com/id/818087910/photo/multi-ethnic-group-of-students-studying-outdoors.jpg?s=612x612&w=0&k=20&c=cXO32DQmlBLvTsbqGaJDkaA90hfM-tVlejSDrKmTulY=" alt="Canada Flag">
+                    </div>
+                    <div class="Country-content">
+                        <h3>Canada</h3>
+                        <p>Study Permit</p>
+                        <a href="canada-visa.html" class="btn">Visa Details</a>
+                    </div>
+                </div>
+                <div class="Country-card">
+                    <div class="Country-flag">
+                    <div class="country-content">
+                        <img src="https://images.unsplash.com/photo-1598880791216-c5c0dfb2c5c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Australia Flag">
+                    </div>
+                    <div class="Country-content">
+                        <h3>Australia</h3>
+                        <p>Student Visa (Subclass 500)</p>
+                        <a href="australia-visa.html" class="btn">Visa Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle">Visa Application Process</h3>
+            <div class="Process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Document Preparation</h3>
+                    <p>We help you gather all necessary documents including acceptance letters, financial statements, and identification papers.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Application Filing</h3>
+                    <p>Our experts assist you in completing the visa application accurately to avoid delays or rejections.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Interview Preparation</h3>
+                    <p>We conduct mock interviews and provide guidance to help you prepare for your visa interview.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Visa Approval</h3>
+                    <p>We track your application and provide support until you receive your visa approval.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!---Testimonials section-->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Good Angel Travels helped me secure admission to my dream university in the UK. Their guidance through the visa process was invaluable!"</p>
+                    </div>
+                    <div class="testimonial-client">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>Michael Chen</h4>
+                            <p>University of Oxford, UK</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"The team at Good Angel Travels made my study abroad journey smooth and stress-free. I'm now pursuing my Master's in Canada thanks to their support."</p>
+                    </div>
+                    <div class="testimonial-client">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>University of Toronto, Canada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"I was confused about the entire process of studying abroad until I found Good Angel Travels. They provided clear guidance at every step."</p>
+                    </div>
+                    <div class="testimonial-client">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>David Wilson</h4>
+                            <p>New York University, USA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!---Call to action section-->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Begin Your Journey?</h2>
+                <p>Contact us today for a free consultation and take the first step towards studying abroad</p>
+                <a href="contact.html" class="btn btn-accent">GET STARTED</a>
+            </div>
+        </div>
+    </section>
+    
+    <!---Footer section-->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Good Angel Travels & Tour</h3>
+                    <p>Helping students achieve their dreams of studying abroad since 2010.</p>
+                    <div class="social-links">
+                        <a href="Goodangel D Travel and Tour Ltd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="@g.dtravelandtour"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#visa">Visa Guidance</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Countries</h3>
+                    <ul>
+                        <li><a href="united-states.html">United States</a></li>
+                        <li><a href="study-programs.html?country=uk">United Kingdom</a></li>
+                        <li><a href="canada-page.html">Canada</a></li>
+                        <li><a href="australia-page.html">Australia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 3rd floor, Nicon Insurance Plaza, Opp.Vfs, CBD, Abuja, NIgeria</li>
+                        <li><i class="fas fa-phone"></i> +234 7039-630-687</li>
+                        <li><i class="fas fa-envelope"></i> info@goodangeltravels.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Good Angel Travels & Tour Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+    // Modal functionality
+    function openAuthModal() {
+        document.getElementById('authModal').style.display = 'block';
+    }
+    
+    function closeAuthModal() {
+        document.getElementById('authModal').style.display = 'none';
+    }
+    
+    // Tab functionality
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        
+        // Prevent default link behavior
+        evt.preventDefault();
+        
+        // Hide all tab content
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
+        }
+        
+        // Remove active class from all tab links
+        tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        
+        // Show the specific tab content and add active class to the button
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+    
+    // Close modal if user clicks outside of it
+    window.onclick = function(event) {
+        var modal = document.getElementById('authModal');
+        if (event.target == modal) {
+            closeAuthModal();
+        }
+    }
+    
+    // Form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Add your login logic here
+        alert('Login functionality would be implemented here');
+        closeAuthModal();
+    });
+    
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Add your signup logic here
+        alert('Signup functionality would be implemented here');
+        closeAuthModal();
+    });
+    
+    // Make sure modal is hidden on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        closeAuthModal();
+    });
+    <script src="script.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>

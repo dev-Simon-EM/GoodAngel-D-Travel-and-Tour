@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel & Tours Packages - Good Angel Travels & Tour</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --travel-primary: #2563eb;
+            --travel-dark: #1d4ed8;
+        }
+
+        .travel-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1350&h=600&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .travel-hero-content {
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .travel-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .travel-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .travel-section {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .destination-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .destination-filter {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .destination-filter:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .destination-filter.active {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-filter {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .service-filter:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-filter.active {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .tour-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .tour-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .tour-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tour-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+        }
+
+        .tour-rating {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #f59e0b;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .tour-header {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tour-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: skewX(-20deg);
+        }
+
+        .tour-destination {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .tour-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tour-body {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tour-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .highlight-item {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.9rem;
+        }
+
+        .highlight-label {
+            color: var(--gray);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+            font-size: 0.8rem;
+        }
+
+        .highlight-value {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .tour-activities {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2563eb;
+        }
+
+        .activities-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .activities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .activity-badge {
+            background: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            color: #2563eb;
+            font-weight: 600;
+            border: 1px solid #2563eb;
+        }
+
+        .tour-footer {
+            padding: 0 25px 25px;
+            margin-top: auto;
+        }
+
+        .tour-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #f59e0b;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .tour-footer .btn {
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tour-footer .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .no-tours {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray);
+            font-size: 1.1rem;
+            grid-column: 1 / -1;
+        }
+
+        .show-more-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .btn-show-more {
+            padding: 15px 50px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-show-more:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-show-more.hidden {
+            display: none;
+        }
+
+        .travel-cta-section {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .travel-cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .travel-cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .travel-cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .travel-cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .travel-cta-section .btn {
+            position: relative;
+            z-index: 1;
+            background: #f59e0b;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .travel-cta-section .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Marquee Flash Sales Section */
+        .flash-sales-section {
+            background: #f5f5f5;
+            padding: 60px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .flash-sales-header {
+            text-align: center;
+            color: #2563eb;
+            font-weight: 700;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            animation: shine 2s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(37, 99, 235, 0.7);
+            }
+        }
+
+        .flash-sales-marquee {
+            display: flex;
+            gap: 25px;
+            animation: scroll-marquee 55s linear infinite;
+            width: fit-content;
+            padding: 10px 0;
+        }
+
+        .flash-sales-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .flash-sale-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 320px;
+            max-width: 320px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .flash-sale-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
+        }
+
+        .flash-sale-card-image {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .flash-sale-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .flash-sale-card:hover .flash-sale-card-image img {
+            transform: scale(1.05);
+        }
+
+        .flash-sale-badge-large {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+            z-index: 10;
+        }
+
+        .flash-sale-card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flash-sale-card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        .flash-sale-card-description {
+            font-size: 0.95rem;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .flash-sale-card-info {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .flash-sale-card-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .flash-sale-card-footer {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .flash-sale-card-footer .btn {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .flash-sales-marquee {
+                animation: scroll-marquee 40s linear infinite;
+                gap: 20px;
+            }
+
+            .flash-sale-card {
+                min-width: 280px;
+                max-width: 280px;
+            }
+
+            .flash-sales-header {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Marquee Flash Sales Section */
+        .travel-services-section {
+            padding: 80px 0;
+            background: #f5f5f5;
+        }
+
+        .travel-services-section .section-header {
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .service-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer styling for horizontal layout on desktop */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #f59e0b;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+            color: #ccc;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #2563eb;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+
+            .travel-hero {
+                min-height: auto;
+                padding: 60px 0;
+            }
+
+            .travel-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .travel-hero p {
+                font-size: 1.1rem;
+            }
+
+            .travel-section {
+                padding: 40px 0;
+            }
+
+            .destination-filters {
+                gap: 8px;
+            }
+
+            .destination-filter {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            .tours-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .tour-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .travel-cta-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-globe"></i>GOODANGEL D TRAVEL & TOUR LTD
+                </a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+                <ul class="nav-links" id="main-nav" aria-hidden="true">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="front.html">STUDY ABROAD</a></li>
+                    <li><a href="travel-tours.html">TRAVEL & TOURS</a></li>
+                    <li><a href="front.html#visa">VISA SERVICES</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li class="nav-auth" aria-hidden="true">
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                        <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                    </li>
+                </ul>
+                <div class="auth-buttons">
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">LOGIN</button>
+                    <button type="button" class="btn btn-outline" onclick="openAuthModal();">SIGN UP</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login/Signup Modal -->
+    <div id="authModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close" onclick="closeAuthModal()" aria-label="Close">&times;</button>
+            <div class="auth-tabs">
+                <button class="tab-link active" onclick="openTab(event, 'loginTab')">Login</button>
+                <button class="tab-link" onclick="openTab(event, 'signupTab')">Sign Up</button>
+            </div>
+
+            <div id="loginTab" class="tab-content active">
+                <h2>Login to Your Account</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div class="auth-switch">
+                    Don't have an account? <a href="#" onclick="openTab(event, 'signupTab')">Sign up</a>
+                </div>
+            </div>
+
+            <div id="signupTab" class="tab-content">
+                <h2>Create an Account</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <input type="password" id="signupConfirm" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+                <div class="auth-switch">
+                    Already have an account? <a href="#" onclick="openTab(event, 'loginTab')">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="travel-hero">
+        <div class="travel-hero-content">
+            <h1>Explore the World</h1>
+            <p>Unforgettable travel experiences and guided tours to your dream destinations</p>
+        </div>
+    </section>
+
+    <!-- Flash Sales & New Year Celebrations Section -->
+    <section class="flash-sales-section">
+        <div class="container">
+            <div class="flash-sales-header">
+                ✨ NEW YEAR CELEBRATION FLASH SALES 2026 ✨
+            </div>
+            <div class="flash-sales-marquee">
+                <!-- New Year Europe Package -->
+                <div class="flash-sale-card">
+                    <div class="flash-sale-card-image">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop&q=80" alt="Paris New Year">
+                        <span class="flash-sale-badge-large">45% OFF</span>
+                    </div>
+                    <div class="flash-sale-card-content">
+                        <h3 class="flash-sale-card-title">European New Year Escape</h3>
+                        <p class="flash-sale-card-description">Celebrate New Year in iconic European cities with luxury accommodations and guided tours</p>
+                        <div class="flash-sale-card-info">
+                            <span><i class="fas fa-calendar"></i> 8 Days</span>
+                            <span><i class="fas fa-users"></i> 4-12 persons</span>
+                        </div>
+                        <div class="flash-sale-card-footer">
+                            <a href="contact.html" class="btn btn-accent" style="background: #1ABC9C;">CONTACT NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dubai Celebration -->
+                <div class="flash-sale-card">
+                    <div class="flash-sale-card-image">
+                        <img src="https://images.unsplash.com/photo-1512453475868-a34144e5315d?w=400&h=300&fit=crop&q=80" alt="Dubai New Year">
+                        <span class="flash-sale-badge-large">40% OFF</span>
+                    </div>
+                    <div class="flash-sale-card-content">
+                        <h3 class="flash-sale-card-title">Dubai Luxury Celebration</h3>
+                        <p class="flash-sale-card-description">Experience spectacular fireworks and luxury shopping in the heart of Dubai this New Year</p>
+                        <div class="flash-sale-card-info">
+                            <span><i class="fas fa-calendar"></i> 5 Days</span>
+                            <span><i class="fas fa-users"></i> 2-8 persons</span>
+                        </div>
+                        <div class="flash-sale-card-footer">
+                            <a href="contact.html" class="btn btn-accent" style="background: #f59e0b;">CONTACT NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caribbean Party Package -->
+                <div class="flash-sale-card">
+                    <div class="flash-sale-card-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&q=80" alt="Caribbean Beach">
+                        <span class="flash-sale-badge-large">35% OFF</span>
+                    </div>
+                    <div class="flash-sale-card-content">
+                        <h3 class="flash-sale-card-title">Caribbean Party Paradise</h3>
+                        <p class="flash-sale-card-description">Ring in the New Year on pristine Caribbean beaches with vibrant parties and water sports</p>
+                        <div class="flash-sale-card-info">
+                            <span><i class="fas fa-calendar"></i> 6 Days</span>
+                            <span><i class="fas fa-users"></i> 4-12 persons</span>
+                        </div>
+                        <div class="flash-sale-card-footer">
+                            <a href="contact.html" class="btn btn-accent" style="background: #f59e0b;">CONTACT NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asian Wellness Retreat -->
+                <div class="flash-sale-card">
+                    <div class="flash-sale-card-image">
+                        <img src="https://images.unsplash.com/photo-1537225228614-b4fad34a0b60?w=400&h=300&fit=crop&q=80" alt="Thailand Spa">
+                        <span class="flash-sale-badge-large">38% OFF</span>
+                    </div>
+                    <div class="flash-sale-card-content">
+                        <h3 class="flash-sale-card-title">Thailand Wellness Retreat</h3>
+                        <p class="flash-sale-card-description">Start 2026 refreshed with yoga, spa, and meditation in beautiful Thailand's tropical islands</p>
+                        <div class="flash-sale-card-info">
+                            <span><i class="fas fa-calendar"></i> 7 Days</span>
+                            <span><i class="fas fa-users"></i> 2-8 persons</span>
+                        </div>
+                        <div class="flash-sale-card-footer">
+                            <a href="contact.html" class="btn btn-accent" style="background: #f59e0b;">CONTACT NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- African Safari Adventure -->
+                <div class="flash-sale-card">
+                    <div class="flash-sale-card-image">
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&h=300&fit=crop&q=80" alt="African Safari">
+                        <span class="flash-sale-badge-large">42% OFF</span>
+                    </div>
+                    <div class="flash-sale-card-content">
+                        <h3 class="flash-sale-card-title">African Safari New Year</h3>
+                        <p class="flash-sale-card-description">Witness incredible wildlife and stunning sunsets while celebrating the New Year in Kenya</p>
+                        <div class="flash-sale-card-info">
+                            <span><i class="fas fa-calendar"></i> 9 Days</span>
+                            <span><i class="fas fa-users"></i> 6-15 persons</span>
+                        </div>
+                        <div class="flash-sale-card-footer">
+                            <a href="contact.html" class="btn btn-accent" style="background: #f59e0b;">CONTACT NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- USA Mountain Adventure -->
+                <div class="flash-sale-card">
+                    <div class="flash-sale-card-image">
+                        <img src="https://images.unsplash.com/photo-1506905925881-a324de74e75d?w=400&h=300&fit=crop&q=80" alt="Mountain Resort">
+                        <span class="flash-sale-badge-large">50% OFF</span>
+                    </div>
+                    <div class="flash-sale-card-content">
+                        <h3 class="flash-sale-card-title">USA Mountain Celebration</h3>
+                        <p class="flash-sale-card-description">Exclusive deal on mountain resorts with skiing, cozy fireplaces, and New Year gala events</p>
+                        <div class="flash-sale-card-info">
+                            <span><i class="fas fa-calendar"></i> 5 Days</span>
+                            <span><i class="fas fa-users"></i> 4-12 persons</span>
+                        </div>
+                        <div class="flash-sale-card-footer">
+                            <a href="contact.html" class="btn btn-accent" style="background: #f59e0b;">CONTACT NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate for seamless loop -->
+                <div class="flash-sale-card">
+                    <div class="flash-sale-card-image">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop&q=80" alt="Paris New Year">
+                        <span class="flash-sale-badge-large">45% OFF</span>
+                    </div>
+                    <div class="flash-sale-card-content">
+                        <h3 class="flash-sale-card-title">European New Year Escape</h3>
+                        <p class="flash-sale-card-description">Celebrate New Year in iconic European cities with luxury accommodations and guided tours</p>
+                        <div class="flash-sale-card-info">
+                            <span><i class="fas fa-calendar"></i> 8 Days</span>
+                            <span><i class="fas fa-users"></i> 4-12 persons</span>
+                        </div>
+                        <div class="flash-sale-card-footer">
+                            <a href="contact.html" class="btn btn-accent" style="background: #1ABC9C;">CONTACT NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="travel-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Discover Amazing Destinations</h2>
+                <p>Choose your favorite destination and find the perfect travel package for your adventure</p>
+            </div>
+
+            <div class="service-filters">
+                <button class="service-filter active" data-service="all">All Services</button>
+                <button class="service-filter" data-service="tour">Guided Tours</button>
+                <button class="service-filter" data-service="trip">Custom Trips</button>
+                <button class="service-filter" data-service="vacation">Vacation Packages</button>
+            </div>
+
+            <div class="destination-filters">
+                <button class="destination-filter active" data-destination="all">All Destinations</button>
+                <button class="destination-filter" data-destination="usa">USA & Caribbean</button>
+                <button class="destination-filter" data-destination="europe">Europe</button>
+                <button class="destination-filter" data-destination="africa">Africa</button>
+                <button class="destination-filter" data-destination="asia">Asia</button>
+                <button class="destination-filter" data-destination="south-america">South America</button>
+                <button class="destination-filter" data-destination="middle-east">Middle East</button>
+            </div>
+
+            <div class="tours-grid" id="toursGrid">
+                <!-- Tours will be populated by JavaScript -->
+            </div>
+
+            <div class="show-more-container">
+                <button id="showMoreBtn" class="btn btn-show-more" onclick="showMoreTours()">Show More Packages</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Services Section -->
+    <section class="travel-services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our Travel Services?</h2>
+                <p>Comprehensive travel solutions for a hassle-free journey</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Flight Bookings</h3>
+                    <p>Best deals on domestic and international flights with flexible booking options and 24/7 support</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Hotel Accommodations</h3>
+                    <p>Handpicked hotels and resorts worldwide with guaranteed best rates and exclusive member discounts</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Car Rentals</h3>
+                    <p>Premium car rental services at competitive rates with comprehensive insurance and support</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h3>Visa Services</h3>
+                    <p>Expert visa assistance and guidance for all major destinations with dedicated support team</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-suitcase-rolling"></i>
+                    </div>
+                    <h3>Vacation Packages</h3>
+                    <p>All-inclusive vacation bundles with flights, hotels, tours and activities at unbeatable prices</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Travel Insurance</h3>
+                    <p>Comprehensive travel insurance covering medical emergencies, cancellations, and lost luggage</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="travel-cta-section">
+        <div class="container">
+            <h2>Ready for Your Next Adventure?</h2>
+            <p>Contact our travel experts to customize your perfect getaway</p>
+            <a href="contact.html" class="btn">Book Your Tour Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="study-programs.html">Study Programs</a></li>
+                        <li><a href="travel-tours.html">Travel & Tours</a></li>
+                        <li><a href="front.html#testimonials">Success Stories</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Destinations</h3>
+                    <ul>
+                        <li><a href="travel-tours.html?destination=usa">USA & Caribbean</a></li>
+                        <li><a href="travel-tours.html?destination=europe">Europe</a></li>
+                        <li><a href="travel-tours.html?destination=africa">Africa</a></li>
+                        <li><a href="travel-tours.html?destination=asia">Asia</a></li>
+                        <li><a href="travel-tours.html?destination=south-america">South America</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 3rd floor, Nicon Insurance Plaza, Opp.Vfs, CBD, Abuja, Nigeria</li>
+                        <li><i class="fas fa-phone"></i> +234 7039-630-687</li>
+                        <li><i class="fas fa-envelope"></i> info@goodangeltravels.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Good Angel Travels & Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Travel packages data (Tours, Trips, and Vacations)
+        const tours = [
+            // USA & Caribbean - Tours
+            { type: 'tour', destination: 'usa', region: 'Florida Keys', title: 'Ultimate Miami & Keys Adventure', duration: '7 Days', activities: 'Beach, Water Sports, Nightlife', price: '$1,499', rating: '4.8', groupSize: '8-15 People' },
+            { type: 'vacation', destination: 'usa', region: 'Hawaii', title: 'Hawaiian Paradise Escape', duration: '5 Days', activities: 'Snorkeling, Hiking, Luau', price: '$1,799', rating: '4.9', groupSize: '2-8 People' },
+            { type: 'trip', destination: 'usa', region: 'New York', title: 'NYC Cultural Experience', duration: '4 Days', activities: 'Museums, Broadway, Fine Dining', price: '$899', rating: '4.7', groupSize: '4-10 People' },
+            { type: 'vacation', destination: 'usa', region: 'Bahamas', title: 'Caribbean Beach Retreat', duration: '6 Days', activities: 'Beach Resort, Sailing, Island Tours', price: '$1,399', rating: '4.8', groupSize: '2-8 People' },
+
+            // Europe - Mixed
+            { type: 'tour', destination: 'europe', region: 'Italy', title: 'Rome, Florence & Venice Tour', duration: '10 Days', activities: 'History, Art, Wine Tasting', price: '$2,199', rating: '4.9', groupSize: '10-18 People' },
+            { type: 'vacation', destination: 'europe', region: 'France', title: 'Paris Romantic Getaway', duration: '5 Days', activities: 'Museums, Cafés, Eiffel Tower', price: '$1,599', rating: '4.9', groupSize: '2-6 People' },
+            { type: 'trip', destination: 'europe', region: 'Spain', title: 'Barcelona & Costa Brava', duration: '6 Days', activities: 'Architecture, Beach, Tapas Tours', price: '$1,699', rating: '4.8', groupSize: '5-12 People' },
+            { type: 'tour', destination: 'europe', region: 'Greece', title: 'Greek Islands Cruise', duration: '8 Days', activities: 'Island Hopping, Beach, Greek Cuisine', price: '$1,899', rating: '4.9', groupSize: '12-20 People' },
+
+            // Africa - Mixed
+            { type: 'tour', destination: 'africa', region: 'Egypt', title: 'Nile River & Pyramids', duration: '9 Days', activities: 'Ancient Monuments, Nile Cruise, Desert Safari', price: '$1,299', rating: '4.7', groupSize: '8-16 People' },
+            { type: 'tour', destination: 'africa', region: 'South Africa', title: 'Safari & Cape Town Experience', duration: '10 Days', activities: 'Wildlife Safari, Wine Country, Beach', price: '$2,499', rating: '4.8', groupSize: '6-14 People' },
+            { type: 'trip', destination: 'africa', region: 'Kenya', title: 'Maasai Mara Wildlife Safari', duration: '7 Days', activities: 'Big Five Safari, Cultural Tours, Photography', price: '$1,899', rating: '4.8', groupSize: '4-10 People' },
+            { type: 'vacation', destination: 'africa', region: 'Zanzibar', title: 'Spice Island Beach Escape', duration: '5 Days', activities: 'Beach Resort, Spice Farm Tour, Scuba Diving', price: '$1,199', rating: '4.9', groupSize: '2-8 People' },
+
+            // Asia - Mixed
+            { type: 'trip', destination: 'asia', region: 'Thailand', title: 'Bangkok & Phuket Adventure', duration: '7 Days', activities: 'Temple Tours, Beach, Thai Massage', price: '$899', rating: '4.8', groupSize: '4-12 People' },
+            { type: 'tour', destination: 'asia', region: 'Japan', title: 'Tokyo & Mount Fuji Experience', duration: '8 Days', activities: 'Modern Cities, Mountains, Traditional Culture', price: '$2,299', rating: '4.9', groupSize: '8-16 People' },
+            { type: 'vacation', destination: 'asia', region: 'Bali', title: 'Bali Spiritual Retreat', duration: '6 Days', activities: 'Temples, Yoga, Rice Fields, Beach', price: '$1,099', rating: '4.9', groupSize: '3-8 People' },
+            { type: 'trip', destination: 'asia', region: 'Indonesia', title: 'Lombok Island Paradise', duration: '5 Days', activities: 'Pristine Beaches, Snorkeling, Hiking', price: '$999', rating: '4.8', groupSize: '2-8 People' },
+
+            // South America - Mixed
+            { type: 'trip', destination: 'south-america', region: 'Peru', title: 'Machu Picchu & Sacred Valley', duration: '8 Days', activities: 'Inca Trails, Mountain Views, Local Culture', price: '$1,799', rating: '4.9', groupSize: '6-12 People' },
+            { type: 'vacation', destination: 'south-america', region: 'Brazil', title: 'Rio de Janeiro Carnival', duration: '6 Days', activities: 'Carnival, Beach, Christ Statue, Nightlife', price: '$1,499', rating: '4.8', groupSize: '3-10 People' },
+            { type: 'tour', destination: 'south-america', region: 'Argentina', title: 'Buenos Aires & Tango', duration: '5 Days', activities: 'Tango Shows, Wine Tours, City Exploration', price: '$1,399', rating: '4.7', groupSize: '8-14 People' },
+            { type: 'trip', destination: 'south-america', region: 'Colombia', title: 'Coffee Triangle Adventure', duration: '6 Days', activities: 'Coffee Plantation Tours, Cloud Forests, Local Culture', price: '$999', rating: '4.8', groupSize: '4-10 People' },
+
+            // Middle East - Mixed
+            { type: 'vacation', destination: 'middle-east', region: 'UAE', title: 'Dubai Luxury Experience', duration: '4 Days', activities: 'Shopping, Desert Safari, Modern Architecture', price: '$1,299', rating: '4.8', groupSize: '2-8 People' },
+            { type: 'trip', destination: 'middle-east', region: 'Jordan', title: 'Petra & Dead Sea Wonder', duration: '6 Days', activities: 'Ancient Wonder, Mineral Baths, Desert Exploration', price: '$1,199', rating: '4.9', groupSize: '5-12 People' },
+        ];
+
+        let currentFilter = 'all';
+        let currentService = 'all';
+        let packagesShown = 6;
+        const packagesPerLoad = 6;
+
+        function renderTours() {
+            const grid = document.getElementById('toursGrid');
+            let filtered = tours;
+            
+            // Filter by service type
+            if (currentService !== 'all') {
+                filtered = filtered.filter(t => t.type === currentService);
+            }
+            
+            // Filter by destination
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(t => t.destination === currentFilter);
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="no-tours">No packages found for this selection.</div>';
+                document.getElementById('showMoreBtn').classList.add('hidden');
+                return;
+            }
+
+            // Show only limited packages initially
+            const toDisplay = filtered.slice(0, packagesShown);
+
+            grid.innerHTML = toDisplay.map(tour => `
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-${
+                        {
+                            'florida-keys': '1506905925346-21bda4d32df4',
+                            'hawaii': '1559827260-dc66d52bef19',
+                            'new-york': '1496442226666-8d4d0e62e6e9',
+                            'bahamas': '1520279258329-0d8cb4e991b5',
+                            'italy': '1552832857-d692cb309f66',
+                            'france': '1502602898657-3e91760cbb34',
+                            'spain': '1507525428033-c5b8b3a0dd38',
+                            'greece': '1570077188670-e50fcff529f5',
+                            'egypt': '1504681869696-d977e713d345',
+                            'south-africa': '1516426122078-c23e76319801',
+                            'kenya': '1535368523867-a2cca8d5a26a',
+                            'zanzibar': '1537359555882-a028274f9481',
+                            'thailand': '1537225228614-b4fad34a0b60',
+                            'japan': '1522383537445-069f801e589f',
+                            'bali': '1522250925125-8d51a63b8234',
+                            'indonesia': '1540202404-a2f29016b523',
+                            'peru': '1587595431973-98b55511e4a5',
+                            'brazil': '1469854523086-cc02fe5d8800',
+                            'argentina': '1502602898657-3a91ba631e52',
+                            'colombia': '1516426122078-c23e76319801',
+                            'uae': '1512453315462-e1c67f48b5b1',
+                            'jordan': '1531366936721-c898dc7fb236'
+                        }[tour.region.toLowerCase()] || '1469854523086-cc02fe5d8800'
+                    }?w=400&h=200&fit=crop&q=80')">
+                        <div class="tour-rating">
+                            <i class="fas fa-star"></i> ${tour.rating}
+                        </div>
+                    </div>
+                    <div class="tour-header">
+                        <div class="tour-destination">${tour.destination.toUpperCase()} - ${tour.region}</div>
+                        <h3 class="tour-title">${tour.title}</h3>
+                    </div>
+                    <div class="tour-body">
+                        <div class="tour-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-label">Duration</div>
+                                <div class="highlight-value">${tour.duration}</div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-label">Group Size</div>
+                                <div class="highlight-value">${tour.groupSize}</div>
+                            </div>
+                        </div>
+                        <div class="tour-activities">
+                            <div class="activities-label">Activities</div>
+                            <div class="activities-list">
+                                ${tour.activities.split(', ').map(activity => `<span class="activity-badge">${activity}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="tour-footer">
+                            <div class="tour-price">${tour.price}</div>
+                            <a href="contact.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Show/hide the Show More button
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            if (filtered.length > packagesShown) {
+                showMoreBtn.classList.remove('hidden');
+                showMoreBtn.textContent = `Show More Packages (${filtered.length - packagesShown} more)`;
+            } else {
+                showMoreBtn.classList.add('hidden');
+            }
+        }
+
+        function showMoreTours() {
+            packagesShown += packagesPerLoad;
+            renderTours();
+        }
+
+        // Check URL params for destination filter
+        function getDestinationFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const destination = params.get('destination');
+            return destination ? destination.toLowerCase() : 'all';
+        }
+
+        // Service type filter event listeners
+        document.querySelectorAll('.service-filter').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.service-filter').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentService = this.dataset.service;
+                packagesShown = 6; // Reset to initial amount
+                renderTours();
+            });
+        });
+
+        // Destination filter event listeners
+        document.querySelectorAll('.destination-filter').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.destination-filter').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.destination;
+                packagesShown = 6; // Reset to initial amount
+                renderTours();
+            });
+        });
+
+        // Initialize with URL parameter or default
+        currentFilter = getDestinationFromURL();
+        const activeBtn = document.querySelector(`.destination-filter[data-destination="${currentFilter}"]`);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        } else if (currentFilter !== 'all') {
+            document.querySelector('.destination-filter[data-destination="all"]').classList.add('active');
+            currentFilter = 'all';
+        } else {
+            document.querySelector('.destination-filter[data-destination="all"]').classList.add('active');
+        }
+
+        // Initial render
+        renderTours();
+    </script>
+</body>
+</html>
