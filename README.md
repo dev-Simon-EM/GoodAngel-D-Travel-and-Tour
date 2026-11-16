@@ -1,20 +1,22 @@
 # GoodAngel D Travel and Tour
 
-A responsive, multi-page website for GoodAngel D Travel & Tour Ltd. The site brings together travel services, tours, hotel information, study-abroad programmes, visa guidance, and contact paths.
+GoodAngel D Travel and Tour is a responsive, multi-page static website for a travel, tour, and study-abroad service business. It brings together company and service information, destination-specific visa guidance, programme descriptions, and inquiry paths.
 
-## Live Website
+## Purpose
 
-<https://dev-simon-em.github.io/GoodAngel-D-Travel-and-Tour/>
+The site provides a digital presentation for travel and education-related services, including:
 
-## Pages
+- travel tours and destination information
+- hotel and accommodation information
+- visa guidance pages for several destinations
+- study-abroad programme information
+- company, services, and contact pages
 
-- `index.html` — homepage with travel and hotel search forms, service links, and account dialogs.
-- `about.html`, `services.html`, and `contact.html` — company information, service descriptions, and contact form.
-- `travel-tours.html` and `hotels.html` — tour packages and accommodation information.
-- `front.html` and `study-programs.html` — study-abroad landing and programme overview.
-- `ba-program.html`, `mba-program.html`, and `msc-program.html` — undergraduate, MBA, and MSc programme information.
-- `visa.html`, `uk-visa.html`, `usa-visa.html`, `canada-visa.html`, and `australia-visa.html` — visa guidance by service and destination.
-- `admin.html`, `dashboard.html`, and `user-dashboard.html` — dashboard interface pages.
+## Implementation status and scope
+
+This repository is a static front-end implemented with HTML, CSS, and vanilla JavaScript. Some account dialogs, booking/search interactions, dashboards, and inquiry controls are interface-level or placeholder experiences. There is no verified production authentication, booking engine, payment processing, database, or connected content-management system.
+
+The destination and visa content is presented as website copy; users should check current official sources for travel and immigration rules.
 
 ## Technologies
 
@@ -23,18 +25,31 @@ A responsive, multi-page website for GoodAngel D Travel & Tour Ltd. The site bri
 - Vanilla JavaScript
 - Font Awesome icons via CDN
 
-Shared front-end behavior is in `script.js`; styles are split across `front.css`, `travels.css`, `hotels.css`, `dashboard.css`, and `contries.css`.
+Shared behavior is in `script.js`. Styles are divided among CSS files, including `front.css`, `travels.css`, `hotels.css`, `dashboard.css`, and `contries.css`.
 
-## Important Scope Note
+## Pages
 
-This repository contains a static front-end. The login and registration dialogs and the booking search currently show placeholder responses; there is no production authentication, booking engine, or server-side form processing in this codebase.
+- `index.html` — homepage
+- `about.html`, `services.html`, and `contact.html` — company information and contact paths
+- `travel-tours.html` and `hotels.html` — tours and accommodation information
+- `front.html`, `study-programs.html`, and programme-specific pages — study-abroad information
+- `visa.html` and destination-specific pages — visa guidance
+- `admin.html`, `dashboard.html`, and `user-dashboard.html` — dashboard-style interface pages
 
-## Run Locally
+## Run locally
 
-Serve this directory with a local static web server and open `index.html`. For example:
+From the repository directory, start a local static server:
 
-```sh
+```bash
 python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000/`.
+Then open <http://localhost:8000/>.
+
+## Live site
+
+<https://dev-simon-em.github.io/GoodAngel-D-Travel-and-Tour/>
+
+## Notes
+
+This project demonstrates multi-page front-end organization and business website presentation. It should be described as a static website, not a complete travel booking or management platform.
