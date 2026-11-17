@@ -36,6 +36,23 @@ Shared behavior is in `script.js`. Styles are divided among CSS files, including
 - `visa.html` and destination-specific pages — visa guidance
 - `admin.html`, `dashboard.html`, and `user-dashboard.html` — dashboard-style interface pages
 
+Some listed routes are unfinished placeholders (including `autralia-visa.html`,
+`ba-program.html`, and `canada-visa.html`). The corresponding completed
+destination or programme pages should be checked before treating every link as
+ready for visitors.
+
+## Interactions and data
+
+The shared `script.js` provides client-side interface behavior such as
+navigation, tabs, category/package filters, and modal interactions. These
+controls run in the browser. The repository does not include a server,
+database, API, payment processor, or verified booking workflow, so interface
+forms and dashboards should not be used to submit sensitive information.
+
+Visa and destination pages are informational website content, not legal or
+immigration advice. Confirm current requirements with official government or
+consular sources before making travel decisions.
+
 ## Run locally
 
 From the repository directory, start a local static server:
@@ -52,4 +69,6 @@ Then open <http://localhost:8000/>.
 
 ## Notes
 
-This project demonstrates multi-page front-end organization and business website presentation. It should be described as a static website, not a complete travel booking or management platform.
+This project demonstrates multi-page front-end organization and business
+website presentation. It should be described as a static website, not a
+complete travel booking or management platform.
